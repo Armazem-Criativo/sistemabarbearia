@@ -1,0 +1,78 @@
+.container-login{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(0,212,255,1) 100%);
+}
+
+.container-login .card{
+    background-color: #ffffff80;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.container-login .card .title{
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.container-login .card .label-float{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.container-login .card .label-float label{
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+.container-login .card .label-float input{
+    background-color: transparent;
+    padding: 5px;
+    outline: none;
+    border-bottom: 2px solid white;
+    width: 100%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.container-login .card .label-float input[type=text]{
+    color: white;
+}
+
+.container-login .card .label-float input[type=password]{
+    color: white;
+}
+
+.container-login .card .btn-float{
+    margin-top: 30px;
+}
+
+.container-login .card .btn-float .btn-login{
+    border: 1px solid #191970;
+    padding: 7px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: .3s all ease;
+    text-transform: uppercase;
+    background-color: #191970;
+}
+
+.container-login .card .btn-float .btn-login:hover{
+    background-color: white;
+    border: 1px solid white;
+    color: #191970;
+    transition: .3s all ease;
+}
