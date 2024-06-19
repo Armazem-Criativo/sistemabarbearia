@@ -1,0 +1,4 @@
+.side-menu{
+    display: flex;
+    min-height: 100vh;
+}

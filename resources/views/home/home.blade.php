@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-<h1>Teste</h1>
+<div class="side-menu">
+    @include('components.sidebar')
+</div>
 @endsection

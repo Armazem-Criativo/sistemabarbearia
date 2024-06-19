@@ -1,0 +1,101 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #e3e9f7;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+}
+
+.sidebar .sidebar-content{
+    padding: 12px;
+}
+
+.sidebar .sidebar-content .user{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.sidebar .sidebar-content .user .image-user{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.sidebar .sidebar-content .user .user-infos{
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+}
+
+.sidebar .sidebar-content .user .user-infos .user-item:last-child{
+    color: #191970;
+    font-size: 12px;
+    text-align: center;
+}
+
+.sidebar .sidebar-content .side-items{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.sidebar .sidebar-content .side-items .side-item{
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.sidebar .sidebar-content .side-items .side-item.active{
+    background-color: #191970;
+}
+
+.sidebar .sidebar-content .side-items .side-item:hover:not(.active){
+    background-color: #e3e9f7;
+    opacity: 0.6;
+}
+
+.sidebar .sidebar-content .side-items .side-item a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    color: #000;
+    font-family: "Roboto", sans-serif;
+    gap: 14px;
+}
+
+.sidebar .sidebar-content .side-items .side-item.active a{
+    color: #e3e9f7;
+}
+
+.sidebar .sidebar-content .side-items .side-item a svg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar .logout{
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+.sidebar .logout .logout-btn{
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
