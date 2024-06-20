@@ -1,0 +1,58 @@
+.user-index{
+    display: flex;
+    height: 100vh;
+}
+
+.user-index .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.user-index .user-index-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-index .user-index-container .user-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.user-index .user-index-container .user-create{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    padding: 15px;
+}
+
+.user-index .user-index-container .user-create .user-quest p{
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+}
+
+.user-index .user-index-container .user-create .btn-create a{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #191970;
+    background-color: #191970;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
