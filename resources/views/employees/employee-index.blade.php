@@ -14,7 +14,7 @@
                     Deseja Cadastras novos funcionários?
                 </div>
                 <div class="btn-employee-create">
-                    <a href="{{route('create-employee')}}">
+                    <a href="{{route('funcionarios.create')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus" viewBox="0 0 16 16">
                             <path
@@ -44,7 +44,7 @@
                         <td>nome_completo@gmail.com</td>
                         <td>Funcionario</td>
                         <td class="text-center">
-                            <a href="{{route('edit-employee')}}" class="text-primary">
+                            <a href="{{--{{route('funcionarios.edit')}}--}}" class="text-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                     <path

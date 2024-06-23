@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('position');
             $table->string('phone');
-            $table->string('birthdate')->nullable();
+            $table->date('birthdate')->nullable();
             $table->string('email')->unique();
             $table->integer('sort')->nullable();
             $table->timestamps();

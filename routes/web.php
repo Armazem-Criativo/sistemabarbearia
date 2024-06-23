@@ -17,6 +17,4 @@ Route::get('/criar-usuario',[UserController::class, 'create'])->name('create-use
 Route::get('/editar-usuario',[UserController::class, 'edit'])->name('edit-users');
 
 //Funcionários
-Route::get('/funcionarios',[EmployeeController::class, 'index'])->name('employees');
-Route::get('/criar-funcionario',[EmployeeController::class, 'create'])->name('create-employee');
-Route::get('/editar-funcionario',[EmployeeController::class, 'edit'])->name('edit-employee');
+Route::resource('funcionarios', EmployeeController::class);
