@@ -11,12 +11,16 @@
         </div>
         <form action="">
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <label for="" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="">
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <label for="" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+                <div class="col-4">
+                    <label for="" class="form-label">Data de Nascimento</label>
                     <input type="text" class="form-control" id="">
                 </div>
             </div>

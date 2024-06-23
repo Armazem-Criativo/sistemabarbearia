@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('cpf')->unique();
+            $table->text('address');
+            $table->string('position');
+            $table->string('phone');
+            $table->string('birthdate')->nullable();
+            $table->string('email')->unique();
+            $table->integer('sort')->nullable();
             $table->timestamps();
         });
     }
