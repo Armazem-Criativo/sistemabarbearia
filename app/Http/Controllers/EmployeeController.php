@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     public function index()
     {
-        return view('user.user-index');
+        return view('employees.employee-index');
     }
 
     public function create()
     {
-        return view('user.user-create');
+        return view('employees.employee-create');
     }
 
     public function edit()
     {
-        return view('user.user-edit');
+        return view('employees.employee-edit');
     }
 }

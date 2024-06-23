@@ -1,21 +1,21 @@
-.user-index{
+.employee-index{
     display: flex;
     height: 100vh;
 }
 
-.user-index .side-menu{
+.employee-index .side-menu{
     display: flex;
     min-height: 100vh;
 }
 
-.user-index .user-index-container{
+.employee-index .employee-index-container{
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
 }
 
-.user-index .user-index-container .user-title{
+.employee-index .employee-index-container .employee-title-index{
     text-transform: uppercase;
     background-color: #191970;
     border: 1px solid #191970;
@@ -27,7 +27,7 @@
     padding: 10px;
 }
 
-.user-index .user-index-container .user-create-t{
+.employee-index .employee-index-container .employee-index-c{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -36,13 +36,13 @@
     padding: 15px;
 }
 
-.user-index .user-index-container .user-create-t .user-quest p{
+.employee-index .employee-index-container .employee-index-c .employee-quest p{
     font-family: "Roboto", sans-serif;
     font-size: 17px;
     margin-bottom: 0;
 }
 
-.user-index .user-index-container .user-create-t .btn-create a{
+.employee-index .employee-index-container .employee-index-c .btn-employee-create a{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -56,4 +56,3 @@
     color: #fff;
     font-family: "Roboto", sans-serif;
 }
-

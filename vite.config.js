@@ -10,6 +10,11 @@ export default defineConfig({
                 'resources/css/components/sidebar.css',
                 'resources/css/home/home.css',
                 'resources/css/user/user-index.css',
+                'resources/css/user/user-create.css',
+                'resources/css/user/user-edit.css',
+                'resources/css/employees/employee-index.css',
+                'resources/css/employees/employee-create.css',
+                'resources/css/employees/employee-edit.css',
                 'resources/js/app.js'
             ],
             refresh: true,

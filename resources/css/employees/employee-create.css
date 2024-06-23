@@ -1,0 +1,33 @@
+.employee-create{
+    display: flex;
+    height: 100vh;
+}
+
+.employee-create .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.employee-create .employee-create-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.employee-create .employee-create-container .employee-create-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.employee-create .employee-create-container form{
+    width: 80%;
+    padding: 50px;
+}

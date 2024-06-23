@@ -1,0 +1,33 @@
+.user-edit{
+    display: flex;
+    height: 100vh;
+}
+
+.user-edit .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.user-edit .user-edit-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-edit .user-edit-container .edit-user-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.user-edit .user-edit-container form{
+    width: 80%;
+    padding: 50px;
+}
