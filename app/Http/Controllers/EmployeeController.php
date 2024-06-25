@@ -10,6 +10,8 @@ class EmployeeController extends Controller
 {
     public function index()
     {
+        $employees = Employee::all();
+
         return view('employees.employee-index');
     }
 
@@ -21,21 +23,32 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'cpf' => 'required|string|max:14',
-            'birthdate' => 'nullable|date_format:Y-m-d',
-            'address' => 'required|string|max:255',
-            'position' => 'required|string|max:50',
-            'phone' => 'required|string|max:20',
-            'email' => 'required|string|max:255|unique:employees,email',
+            'name' => 'required',
+            'cpf' => 'required|unique:employees,cpf',
+            'birthdate' => 'required|date_format:Y-m-d',
+            'address' => 'required',
+            'phone' => 'required',
+            'position' => 'required',
+            'email' => 'required|email|unique:employees,email',
         ]);
 
-        $employeeData = $request->only('name', 'cpf', 'address', 'position', 'phone', 'email');
-        $employeeData['birthdate'] = $request->birthdate ? Carbon::createFromFormat('Y-m-d', $request->birthdate)->toDateString() : null;
+        try {
+            $birthdate = Carbon::createFromFormat('Y-m-d', $request->birthdate);
 
-        Employee::create($employeeData);
+            $employee = new Employee();
+            $employee->name = $request->name;
+            $employee->cpf = $request->cpf;
+            $employee->birthdate = $birthdate;
+            $employee->address = $request->address;
+            $employee->phone = $request->phone;
+            $employee->position = $request->position;
+            $employee->email = $request->email;
+            $employee->save();
 
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário criado com sucesso');
+            return redirect()->route('funcionarios.index')->with('success', 'Funcionário criado com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao criar funcionário: ' . $e->getMessage()]);
+        }
     }
 
 
