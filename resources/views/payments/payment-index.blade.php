@@ -51,7 +51,7 @@
                             <td class="text-center">{{$pay->formpay}}</td>
                             <td class="text-center">{{$pay->parcel}}</td>
                             <td class="text-center">
-                                <a href="" class="text-primary">
+                                <a href="{{route('formas-de-pagamento.edit', ['formas_de_pagamento' => $pay->id])}}" class="text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path
