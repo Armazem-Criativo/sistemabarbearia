@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SchedulingController;
 use App\Http\Controllers\ServiceController;
 
 Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
@@ -30,3 +31,6 @@ Route::resource('formas-de-pagamento', PaymentController::class);
 
 //Serviços
 Route::resource('servicos', ServiceController::class);
+
+//Agendamentos
+Route::resource('agendamentos',SchedulingController::class);
