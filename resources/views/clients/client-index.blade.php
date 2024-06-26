@@ -44,7 +44,7 @@
                 <tbody>
                     @foreach ($clients as $client)
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{$client->id}}</th>
                             <td class="text-center">{{$client->name}}</td>
                             <td class="text-center">{{$client->email}}</td>
                             <td class="text-center">{{$client->phone}}</td>
@@ -58,8 +58,7 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="#" class="text-danger" data-bs-toggle="modal"
-                                    data-bs-target="#clientDeleteModal">
+                                <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#clientDeleteModal{{$client->id}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path
@@ -77,7 +76,7 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="clientDeleteModal" tabindex="-1" aria-labelledby="labelDeleteModal" aria-hidden="true">
+    <div class="modal fade" id="clientDeleteModal{{ $client->id }}" tabindex="-1" aria-labelledby="labelDeleteModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -85,13 +84,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Tem certeza de que deseja excluir este usuário?
+                    Tem certeza de que deseja excluir o cliente {{ $client->name }}?
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('clientes.destroy', 1) }}" method="POST">
+                    <form action="{{ route('clientes.destroy', ['cliente' => $client->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>
                 </div>
