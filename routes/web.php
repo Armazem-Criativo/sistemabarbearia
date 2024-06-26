@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\LoginController;
@@ -18,3 +19,6 @@ Route::get('/editar-usuario',[UserController::class, 'edit'])->name('edit-users'
 
 //Funcionários
 Route::resource('funcionarios', EmployeeController::class);
+
+//Clientes
+Route::resource('clientes', ClientController::class);

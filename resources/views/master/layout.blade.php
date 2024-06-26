@@ -23,6 +23,9 @@
     'resources/css/employees/employee-index.css',
     'resources/css/employees/employee-create.css',
     'resources/css/employees/employee-edit.css',
+    'resources/css/clients/client-create.css',
+    'resources/css/clients/client-edit.css',
+    'resources/css/clients/client-index.css',
 ])
 
 <style>

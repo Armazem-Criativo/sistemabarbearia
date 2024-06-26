@@ -1,0 +1,58 @@
+.client-index{
+    display: flex;
+    height: 100vh;
+}
+
+.client-index .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.client-index .client-index-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.client-index .client-index-container .client-index-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.client-index .client-index-container .client-create-quest{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    padding: 15px;
+}
+
+.client-index .client-index-container .client-create-quest .client-quest p{
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.client-index .client-index-container .client-create-quest .btn-client-create a{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #191970;
+    background-color: #191970;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
