@@ -97,4 +97,16 @@ class EmployeeController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar funcionário: ' . $e->getMessage()]);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $employee = Employee::findOrFail($id);
+            $employee->delete();
+
+            return redirect()->route('funcionarios.index')->with('success', 'Funcionário excluído com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erro ao excluir funcionário: ' . $e->getMessage()]);
+        }
+    }
 }
