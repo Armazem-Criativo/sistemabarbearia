@@ -1,0 +1,33 @@
+.scheduling-create{
+    display: flex;
+    height: 100vh;
+}
+
+.scheduling-create .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.scheduling-create .scheduling-create-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.scheduling-create .scheduling-create-container .scheduling-create-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.scheduling-create .scheduling-create-container form{
+    width: 80%;
+    padding: 50px;
+}

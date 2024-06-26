@@ -13,4 +13,9 @@ class Service extends Model
         'service',
         'value'
     ];
+
+    public function schedulings()
+    {
+        return $this->hasMany(Scheduling::class, 'id_service');
+    }
 }

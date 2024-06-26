@@ -18,4 +18,9 @@ class Employee extends Model
         'birthdate',
         'email'
     ];
+
+    public function schedulings()
+    {
+        return $this->hasMany(Scheduling::class, 'id_employee');
+    }
 }

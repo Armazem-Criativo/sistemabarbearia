@@ -13,4 +13,9 @@ class Payment extends Model
         'formpay',
         'parcel'
     ];
+
+    public function schedulings()
+    {
+        return $this->hasMany(Scheduling::class, 'id_payment');
+    }
 }

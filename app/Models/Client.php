@@ -17,4 +17,9 @@ class Client extends Model
         'phone',
         'email'
     ];
+
+    public function schedulings()
+    {
+        return $this->hasMany(Scheduling::class, 'id_client');
+    }
 }
