@@ -68,4 +68,16 @@ class PaymentController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar forma de pagamento: ' . $e->getMessage()]);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $payment = Payment::findOrFail($id);
+            $payment->delete();
+
+            return redirect()->route('formas-de-pagamento.index')->with('success', 'Forma de pagamento excluída com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erro ao excluir forma de pagamento: ' . $e->getMessage()]);
+        }
+    }
 }

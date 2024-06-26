@@ -60,10 +60,8 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="" class="text-danger" data-bs-toggle="modal"
-                                    data-bs-target="#paymentDeleteModal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#paymentDeleteModal{{$pay->id}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path
                                             d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
                                         <path
@@ -77,4 +75,26 @@
             </table>
         </div>
     </section>
+
+    <div class="modal fade" id="paymentDeleteModal{{ $pay->id }}" tabindex="-1" aria-labelledby="labelDeleteModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="labelDeleteModal">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir a forma de pagamento: {{ $pay->formpay }}?
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('formas-de-pagamento.destroy', ['formas_de_pagamento' => $pay->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
