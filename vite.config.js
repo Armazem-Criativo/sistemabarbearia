@@ -24,6 +24,9 @@ export default defineConfig({
                 'resources/css/services/service-index.css',
                 'resources/css/services/service-create.css',
                 'resources/css/services/service-edit.css',
+                'resources/css/scheduling/scheduling-index.css',
+                'resources/css/scheduling/scheduling-create.css',
+                'resources/css/scheduling/scheduling-edit.css',
                 'resources/js/app.js'
             ],
             refresh: true,
