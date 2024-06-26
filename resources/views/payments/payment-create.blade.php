@@ -13,7 +13,8 @@
         <div class="payment-create-title">
             <h1>cadastrar forma de pagamento</h1>
         </div>
-        <form action="">
+        <form action="{{route('formas-de-pagamento.store')}}" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-4">
                     <label for="formpay" class="form-label">Forma de Pagamento</label>
