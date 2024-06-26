@@ -1,0 +1,33 @@
+.payment-create{
+    display: flex;
+    height: 100vh;
+}
+
+.payment-create .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.payment-create .payment-create-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.payment-create .payment-create-container .payment-create-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.payment-create .payment-create-container form{
+    width: 80%;
+    padding: 50px;
+}
