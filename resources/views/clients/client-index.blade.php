@@ -49,7 +49,7 @@
                             <td class="text-center">{{$client->email}}</td>
                             <td class="text-center">{{$client->phone}}</td>
                             <td class="text-center">
-                                <a href="{{ route('clientes.edit', 1) }}" class="text-primary">
+                                <a href="{{ route('clientes.edit', ['cliente' => $client->id]) }}" class="text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path

@@ -1,0 +1,33 @@
+.client-edit{
+    display: flex;
+    height: 100vh;
+}
+
+.client-edit .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.client-edit .client-edit-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.client-edit .client-edit-container .client-edit-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.client-edit .client-edit-container form{
+    width: 80%;
+    padding: 50px;
+}
