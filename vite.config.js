@@ -21,6 +21,9 @@ export default defineConfig({
                 'resources/css/payment/payment-index.css',
                 'resources/css/payment/payment-create.css',
                 'resources/css/payment/payment-edit.css',
+                'resources/css/services/service-index.css',
+                'resources/css/services/service-create.css',
+                'resources/css/services/service-edit.css',
                 'resources/js/app.js'
             ],
             refresh: true,
