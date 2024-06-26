@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
 Route::get('/login',[LoginController::class,'index'])->name('login');
@@ -22,3 +23,6 @@ Route::resource('funcionarios', EmployeeController::class);
 
 //Clientes
 Route::resource('clientes', ClientController::class);
+
+//Formas de Pagamento
+Route::resource('formas-de-pagamento', PaymentController::class);

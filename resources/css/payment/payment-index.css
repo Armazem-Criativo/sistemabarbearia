@@ -1,0 +1,58 @@
+.payment-index{
+    display: flex;
+    height: 100vh;
+}
+
+.payment-index .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.payment-index .payment-index-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.payment-index .payment-index-container .payment-index-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.payment-index .payment-index-container .payment-create-quest{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #000000;
+    width: 100%;
+    padding: 15px;
+}
+
+.payment-index .payment-index-container .payment-create-quest .payment-quest p{
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.payment-index .payment-index-container .payment-create-quest .btn-payment-create a{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #191970;
+    background-color: #191970;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}

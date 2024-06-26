@@ -26,6 +26,9 @@
     'resources/css/clients/client-create.css',
     'resources/css/clients/client-edit.css',
     'resources/css/clients/client-index.css',
+    'resources/css/payment/payment-index.css',
+    'resources/css/payment/payment-create.css',
+    'resources/css/payment/payment-edit.css',
 ])
 
 <style>
