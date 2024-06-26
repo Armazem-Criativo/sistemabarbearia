@@ -47,7 +47,7 @@
                             <td class="text-center">{{ $service->service }}</td>
                             <td class="text-center">{{ $service->value }}</td>
                             <td class="text-center">
-                                <a href="{{route('servicos.edit', ['servico' => $service->id])}}" class="text-primary">
+                                <a href="{{ route('servicos.edit', ['servico' => $service->id]) }}" class="text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path
@@ -56,8 +56,7 @@
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="" class="text-danger" data-bs-toggle="modal"
-                                    data-bs-target="#serviceDeleteModal">
+                                <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#serviceDeleteModal{{$service->id}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path
@@ -68,30 +67,32 @@
                                 </a>
                             </td>
                         </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="serviceDeleteModal{{$service->id}}" tabindex="-1" aria-labelledby="labelDeleteModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="labelDeleteModal">Confirmar Exclusão</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza de que deseja excluir este serviço: {{$service->service}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="{{route('servicos.destroy', ['servico' => $service->id])}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </section>
-
-    <!-- Modal -->
-    <div class="modal fade" id="serviceDeleteModal" tabindex="-1" aria-labelledby="labelDeleteModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="labelDeleteModal">Confirmar Exclusão</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Tem certeza de que deseja excluir este usuário?
-                </div>
-                <div class="modal-footer">
-                    <form action="">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

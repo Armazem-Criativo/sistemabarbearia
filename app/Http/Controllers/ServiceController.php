@@ -68,4 +68,16 @@ class ServiceController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar serviço: ' . $e->getMessage()]);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $service = Service::findOrFail($id);
+            $service->delete();
+
+            return redirect()->route('servicos.index')->with('success', 'Serviço excluído com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erro ao excluir forma de pagamento: ' . $e->getMessage()]);
+        }
+    }
 }
