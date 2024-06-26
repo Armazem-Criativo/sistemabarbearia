@@ -1,0 +1,33 @@
+.service-edit{
+    display: flex;
+    height: 100vh;
+}
+
+.service-edit .side-menu{
+    display: flex;
+    min-height: 100vh;
+}
+
+.service-edit .service-edit-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.service-edit .service-edit-container .service-edit-title{
+    text-transform: uppercase;
+    background-color: #191970;
+    border: 1px solid #191970;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.service-edit .service-edit-container form{
+    width: 80%;
+    padding: 50px;
+}

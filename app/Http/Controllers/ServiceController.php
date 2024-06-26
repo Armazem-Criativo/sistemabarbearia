@@ -41,8 +41,31 @@ class ServiceController extends Controller
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('services.service-edit');
+        $service = Service::findOrFail($id);
+
+        return view('services.service-edit', compact('service'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'service' => 'required|string',
+            'value' => 'required|string',
+        ]);
+
+        try {
+            $service = [
+                'service' => $request->input('service'),
+                'value' => $request->input('value'),
+            ];
+
+            DB::table('services')->where('id', $id)->update($service);
+
+            return redirect()->route('servicos.index')->with('success', 'Serviço atualizado com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar serviço: ' . $e->getMessage()]);
+        }
     }
 }

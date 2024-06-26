@@ -47,7 +47,7 @@
                             <td class="text-center">{{ $service->service }}</td>
                             <td class="text-center">{{ $service->value }}</td>
                             <td class="text-center">
-                                <a href="" class="text-primary">
+                                <a href="{{route('servicos.edit', ['servico' => $service->id])}}" class="text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path
