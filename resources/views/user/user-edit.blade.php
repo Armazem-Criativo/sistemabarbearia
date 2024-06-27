@@ -38,12 +38,6 @@
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="col-4">
-                        <label for="password_confirmation" class="form-label">Confimar a Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-4">
                         <label for="role" class="form-label">Permissão</label>
                         <select name="role" id="role" class="form-select">
                             <option value="admin">Administrador</option>

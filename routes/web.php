@@ -16,9 +16,7 @@ Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
 //Usuários
-Route::get('/usuarios',[UserController::class,'index'])->name('users');
-Route::get('/criar-usuario',[UserController::class, 'create'])->name('create-users');
-Route::get('/editar-usuario',[UserController::class, 'edit'])->name('edit-users');
+Route::resource('usuarios', UserController::class);
 
 //Funcionários
 Route::resource('funcionarios', EmployeeController::class);
