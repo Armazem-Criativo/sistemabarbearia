@@ -31,7 +31,7 @@ class UserController extends Controller
             'id_employee' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:4',
             'role' => 'required|string',
         ]);
 
@@ -52,8 +52,41 @@ class UserController extends Controller
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('user.user-edit');
+        $user = User::findOrFail($id);
+        $employees = Employee::all();
+        return view('user.user-edit', compact('user', 'employees'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'id_employee' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8',
+            'role' => 'required|string',
+        ]);
+
+        try {
+            $user = [
+                'id_employee' => $request->input('id_employee'),
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => $request->filled('password') ? Hash::make($request->input('password')) : DB::raw('password'),
+                'role' => $request->input('role'),
+            ];
+
+            if (!$request->filled('password')) {
+                unset($user['password']);
+            }
+
+            DB::table('users')->where('id', $id)->update($user);
+
+            return redirect()->route('usuarios.index')->with('success', 'Usuário alterado com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar usuário: ' . $e->getMessage()]);
+        }
     }
 }

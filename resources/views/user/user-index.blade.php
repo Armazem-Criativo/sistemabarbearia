@@ -55,7 +55,7 @@
                         <td class="text-center">{{$user->email}}</td>
                         <td class="text-center">{{$user->role}}</td>
                         <td class="text-center">
-                            <a href="" class="text-primary">
+                            <a href="{{route('usuarios.edit', ['usuario' => $user->id])}}" class="text-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                     <path
