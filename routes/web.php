@@ -13,6 +13,8 @@ use App\Http\Controllers\ServiceController;
 
 Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
 Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::post('/login',[LoginController::class,'authenticate'])->name('login.authenticate');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
 //Usuários
