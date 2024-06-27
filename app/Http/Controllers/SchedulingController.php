@@ -102,4 +102,16 @@ class SchedulingController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar funcionário: ' . $e->getMessage()]);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $scheduling = Scheduling::findOrFail($id);
+            $scheduling->delete();
+
+            return redirect()->route('agendamentos.index')->with('success', 'Agendamento excluído com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erro ao excluir funcionário: ' . $e->getMessage()]);
+        }
+    }
 }
