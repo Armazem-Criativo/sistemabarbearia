@@ -89,4 +89,16 @@ class UserController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar usuário: ' . $e->getMessage()]);
         }
     }
+
+    public function destroy($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+
+            return redirect()->route('usuarios.index')->with('success', 'Usuário excluído com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erro ao excluir usuário: ' . $e->getMessage()]);
+        }
+    }
 }
