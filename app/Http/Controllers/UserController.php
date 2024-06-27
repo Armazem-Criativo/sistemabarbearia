@@ -17,6 +17,10 @@ class UserController extends Controller
         $users = User::with('employees')->get();
         $user = Auth::user();
 
+        // $sql = User::with('employees')->toSql();
+
+        // dd($sql);
+
         return view('user.user-index', compact('users','user'));
     }
 
@@ -24,6 +28,9 @@ class UserController extends Controller
     {
         $employees = Employee::all();
         $user = Auth::user();
+
+        // $sql = Employee::toSql();
+        // dd($sql);
 
         return view('user.user-create', compact('employees','user'));
     }
@@ -60,6 +67,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $employees = Employee::all();
         $user = Auth::user();
+
+        // $sql = User::findOrFail($id)->toSql();
+        // dd($sql);
 
         return view('user.user-edit', compact('user', 'employees','user'));
     }
