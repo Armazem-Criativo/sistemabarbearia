@@ -55,7 +55,7 @@
                             <td class="text-center">{{$scheduling->payments->formpay}}</td>
                             <td class="text-center">{{$scheduling->services->value}}</td>
                             <td class="text-center">
-                                <a href="" class="text-primary">
+                                <a href="{{ route('agendamentos.edit', ['agendamento' => $scheduling->id]) }}" class="text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path

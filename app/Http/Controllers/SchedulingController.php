@@ -15,7 +15,7 @@ class SchedulingController extends Controller
 {
     public function index()
     {
-        $schedulings = Scheduling::with('clients','employees','payments','services')->get();
+        $schedulings = Scheduling::with('clients', 'employees', 'payments', 'services')->get();
 
         return view('scheduling.scheduling-index', compact('schedulings'));
     }
@@ -59,8 +59,47 @@ class SchedulingController extends Controller
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('scheduling.scheduling-edit');
+        $scheduling = Scheduling::findOrFail($id);
+        $clients = Client::all();
+        $employees = Employee::all();
+        $services = Service::all();
+        $payments = Payment::all();
+
+        if (!($scheduling->date instanceof Carbon)) {
+            $scheduling->date = Carbon::createFromFormat('Y-m-d', $scheduling->date);
+        }
+
+        return view('scheduling.scheduling-edit', compact('scheduling', 'clients', 'employees', 'services', 'payments'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'client_id' => 'required',
+            'employee_id' => 'required',
+            'service_id' => 'required',
+            'payment_id' => 'required',
+            'date' => 'required|date_format:Y-m-d',
+            'status' => 'required|string',
+        ]);
+
+        try {
+            $scheduling = [
+                'id_client' => $request->input('client_id'),
+                'id_employee' => $request->input('employee_id'),
+                'id_service' => $request->input('service_id'),
+                'id_payment' => $request->input('payment_id'),
+                'date' => DB::raw("CONVERT(date, '" . Carbon::createFromFormat('Y-m-d', $request->input('date'))->toDateString() . "', 120)"),
+                'status' => $request->input('status'),
+            ];
+
+            DB::table('schedulings')->where('id', $id)->update($scheduling);
+
+            return redirect()->route('agendamentos.index')->with('success', 'Agendamento atualizado com sucesso.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Erro ao atualizar funcionário: ' . $e->getMessage()]);
+        }
     }
 }
