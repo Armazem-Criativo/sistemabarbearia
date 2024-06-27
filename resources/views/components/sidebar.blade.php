@@ -8,10 +8,10 @@
             <img class="image-user" src="{{ asset('images/iconeavatar.png') }}" alt="avatar">
             <p class="user-infos">
                 <span class="user-item">
-                    Nome do Avatar
+                    {{$user->name}}
                 </span>
                 <span class="user-item">
-                    tipo de usuário
+                    {{$user->role}}
                 </span>
             </p>
         </div>
