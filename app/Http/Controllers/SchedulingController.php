@@ -9,6 +9,7 @@ use App\Models\Scheduling;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SchedulingController extends Controller
@@ -16,8 +17,9 @@ class SchedulingController extends Controller
     public function index()
     {
         $schedulings = Scheduling::with('clients', 'employees', 'payments', 'services')->get();
+        $user = Auth::user();
 
-        return view('scheduling.scheduling-index', compact('schedulings'));
+        return view('scheduling.scheduling-index', compact('schedulings','user'));
     }
 
     public function create()
@@ -26,8 +28,9 @@ class SchedulingController extends Controller
         $employees = Employee::all();
         $services = Service::all();
         $payments = Payment::all();
+        $user = Auth::user();
 
-        return view('scheduling.scheduling-create', compact('clients', 'employees', 'services', 'payments'));
+        return view('scheduling.scheduling-create', compact('clients', 'employees', 'services', 'payments','user'));
     }
 
     public function store(Request $request)
@@ -66,12 +69,13 @@ class SchedulingController extends Controller
         $employees = Employee::all();
         $services = Service::all();
         $payments = Payment::all();
+        $user = Auth::user();
 
         if (!($scheduling->date instanceof Carbon)) {
             $scheduling->date = Carbon::createFromFormat('Y-m-d', $scheduling->date);
         }
 
-        return view('scheduling.scheduling-edit', compact('scheduling', 'clients', 'employees', 'services', 'payments'));
+        return view('scheduling.scheduling-edit', compact('scheduling', 'clients', 'employees', 'services', 'payments','user'));
     }
 
     public function update(Request $request, $id)

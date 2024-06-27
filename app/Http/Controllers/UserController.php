@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,15 +15,17 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('employees')->get();
+        $user = Auth::user();
 
-        return view('user.user-index', compact('users'));
+        return view('user.user-index', compact('users','user'));
     }
 
     public function create()
     {
         $employees = Employee::all();
+        $user = Auth::user();
 
-        return view('user.user-create', compact('employees'));
+        return view('user.user-create', compact('employees','user'));
     }
 
     public function store(Request $request)
@@ -56,7 +59,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $employees = Employee::all();
-        return view('user.user-edit', compact('user', 'employees'));
+        $user = Auth::user();
+
+        return view('user.user-edit', compact('user', 'employees','user'));
     }
 
     public function update(Request $request, $id)

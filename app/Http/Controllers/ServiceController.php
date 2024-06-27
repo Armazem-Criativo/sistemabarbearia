@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
@@ -11,13 +12,16 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
+        $user = Auth::user();
 
-        return view('services.service-index', compact('services'));
+        return view('services.service-index', compact('services','user'));
     }
 
     public function create()
     {
-        return view('services.service-create');
+        $user = Auth::user();
+
+        return view('services.service-create',compact('user'));
     }
 
     public function store(Request $request)
@@ -44,8 +48,9 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::findOrFail($id);
+        $user = Auth::user();
 
-        return view('services.service-edit', compact('service'));
+        return view('services.service-edit', compact('service','user'));
     }
 
     public function update(Request $request, $id)

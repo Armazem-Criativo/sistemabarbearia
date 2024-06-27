@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
@@ -12,13 +13,16 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
+        $user = Auth::user();
 
-        return view('clients.client-index', compact('clients'));
+        return view('clients.client-index', compact('clients', 'user'));
     }
 
     public function create()
     {
-        return view('clients.client-create');
+        $user = Auth::user();
+
+        return view('clients.client-create', compact('user'));
     }
 
     public function store(Request $request)
@@ -53,13 +57,14 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
+        $user = Auth::user();
 
         // Converter birthdate para Carbon se não estiver
         if (!($client->birthdate instanceof Carbon)) {
             $client->birthdate = Carbon::createFromFormat('Y-m-d', $client->birthdate);
         }
 
-        return view('clients.client-edit', compact('client'));
+        return view('clients.client-edit', compact('client','user'));
     }
 
     public function update(Request $request, $id)

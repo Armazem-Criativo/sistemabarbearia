@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
@@ -11,13 +12,15 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::all();
+        $user = Auth::user();
 
-        return view('payments.payment-index', compact('payments'));
+        return view('payments.payment-index', compact('payments','user'));
     }
 
     public function create()
     {
-        return view('payments.payment-create');
+        $user = Auth::user();
+        return view('payments.payment-create', compact('user'));
     }
 
     public function store(Request $request)
@@ -44,8 +47,9 @@ class PaymentController extends Controller
     public function edit($id)
     {
         $payment = Payment::findOrFail($id);
+        $user = Auth::user();
 
-        return view('payments.payment-edit', compact('payment'));
+        return view('payments.payment-edit', compact('payment', 'user'));
     }
 
     public function update(Request $request, $id)
